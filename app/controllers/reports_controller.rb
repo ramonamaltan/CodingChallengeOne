@@ -21,7 +21,7 @@ class ReportsController < ApplicationController
         Lock.create(id: lock_id, status: status_change, kind: kind)
       end
 
-      Entry.create(timestamp: timestamp, status_change: status_change, lock_id: lock)
+      Entry.create(timestamp: timestamp, status_change: status_change, lock: lock)
     end
     render json: { message: "Congrats your report has been processed. Now you have #{Lock.count} locks and #{Entry.count} entries" }
   end
